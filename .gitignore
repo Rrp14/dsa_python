@@ -1,0 +1,4 @@
+edge_verse/
+.venv/
+__pycache__
+.idea/
