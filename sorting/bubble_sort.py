@@ -14,7 +14,7 @@ def bubble_sort(arr):
                 is_swap=True
 
                 """check is to convert brute force to optimal and avoid worst case"""
-            if not is_swap:
+        if not is_swap:
                 print(arr)
                 return
 
