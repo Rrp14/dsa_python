@@ -1,4 +1,4 @@
-"""optimal"""
+"""better approach"""
 class Solution:
     # Function to set entire row and column to 0 if an element in the matrix is 0
     def setZeroes(self, matrix):
@@ -28,15 +28,11 @@ class Solution:
                     matrix[i][j] = 0
 
 # Driver code
-matris = [[1,1,1],[1,0,1],[1,1,1]]
-obj = Solution()
-obj.setZeroes(matris)
-for r in matris:
-    print(r)
+
 
 
 """brute force"""
-def setzeroes(matrix):
+def setzeroes_bf(matrix):
     m=len(matrix)
     n=len(matrix[0])
 
@@ -59,3 +55,54 @@ def setzeroes(matrix):
                 matrix[i][j]=0
 
 
+
+
+"""optimal"""
+
+def set_zero(matrix):
+    m=len(matrix)
+    n=len(matrix[0])
+
+    is_row_zero=False
+    is_col_zero=False
+
+    for j in range(n):
+        if matrix[0][j]==0:
+            is_row_zero=True
+            break
+
+
+    for i in range(m):
+        if matrix[i][0]==0:
+            is_col_zero=True
+            break
+
+
+    for i in range(m):
+        for j in range(n):
+            if matrix[i][j]==0:
+                matrix[i][0]=0
+                matrix[0][j]=0
+
+
+    for i in range(m):
+        for j in range(n):
+            if matrix[i][0]==0 or matrix[0][j]==0:
+                matrix[i][j]=0
+
+
+    if is_col_zero:
+        for i in range(m):
+            matrix[i][0]=0
+
+    if is_row_zero:
+        for j in range(n):
+            matrix[0][j]=0
+
+
+
+
+matris = [[1,1,1],[1,0,1],[1,1,1]]
+set_zero(matris)
+for r in matris:
+    print(r)
